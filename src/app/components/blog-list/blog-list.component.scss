@@ -1,0 +1,6 @@
+hr:last-child {
+  display: none;
+}
+.post-preview + .post-preview {
+  border-top: 1px solid rgb(192, 190, 190);
+}

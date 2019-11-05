@@ -1,0 +1,62 @@
+<!-- Page Header -->
+<header
+  class="masthead"
+  style="background-image: url('../../assets/img/home-bg.jpg')"
+>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>Lets Get Blog</h1>
+          <span class="subheading">by Shilei</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Blogs List -->
+<div class="alert alert-warning" role="alert" *ngIf="errorMsg">
+  {{ errorMsg }}
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <div
+        class="post-preview"
+        itemid="http://localhost:4200/"
+        itemscope
+        itemtype="http://schema.org/SocialMediaPosting"
+        *ngFor="let blog of blogs"
+        (click)="goToBlog(blog)"
+      >
+        <a href="javascript:void(0)" (click)="goToBlog(blog)">
+          <h2 class="post-title" itemprop="headline">
+            {{ blog.title }}
+          </h2>
+          <h3
+            class="post-subtitle"
+            itemprop="sharedContent"
+            itemscope
+            itemtype="http://schema.org/WebPage"
+          >
+            {{ blog.description }}
+          </h3>
+        </a>
+        <p
+          class="post-meta"
+          itemprop="author"
+          itemscope
+          itemtype="http://schema.org/Person"
+        >
+          Posted by
+          <span itemprop="name">{{ blog.author }}</span>
+          on {{ blog.publish_date }}
+          <meta itemprop="datePublished" content="{{ blog.publish_date }}" />
+        </p>
+        <hr />
+      </div>
+    </div>
+  </div>
+</div>

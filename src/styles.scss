@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+
+// @import '../node_modules/bootstrap/scss/functions';
+// @import '../node_modules/bootstrap/scss/variables';
+
+@import './app/stylesheets/variables';
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+@import './app/stylesheets/mixins.scss';
+@import './app/stylesheets/global.scss';
+@import './app/stylesheets/navbar.scss';
+@import './app/stylesheets/masthead.scss';
+@import './app/stylesheets/post.scss';
+@import './app/stylesheets/contact.scss';
+@import './app/stylesheets/footer.scss';
+@import './app/stylesheets/bootstrap-overrides.scss';

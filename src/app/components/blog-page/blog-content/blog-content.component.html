@@ -1,0 +1,58 @@
+<!-- Page Header -->
+<header
+  class="masthead"
+  style="background-image: url('../../assets/img/post-bg.jpg')"
+>
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div
+        class="col-lg-8 col-md-10 mx-auto"
+        *ngIf="blog"
+        itemid="http://localhost:4200/"
+        itemscope
+        itemtype="http://schema.org/SocialMediaPosting"
+      >
+        <div class="post-heading" itemprop="headline">
+          <div class="alert alert-warning" role="alert" *ngIf="errorMsg">
+            {{ errorMsg }}
+          </div>
+          <h1>{{ blog.title }}</h1>
+          <h2 class="subheading" itemprop="headline">
+            {{ blog.description }}
+          </h2>
+          <span
+            class="meta"
+            itemprop="author"
+            itemscope
+            itemtype="http://schema.org/Person"
+            >Posted by
+            <span itemprop="name">{{ blog.author }}</span>
+            on {{ blog.publish_date
+            }}<meta itemprop="datePublished" content="{{ blog.publish_date }}"
+          /></span>
+          <button class="btn btn-primary btn-sm btn-back" (click)="goBack()">
+            More Blogs
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<article>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div
+          #content
+          itemprop="sharedContent"
+          itemscope
+          itemtype="http://schema.org/WebPage"
+        ></div>
+      </div>
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <comments [comments]="comments"></comments>
+      </div>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,49 @@
+<div
+  class="card"
+  *ngIf="
+    comments?.length === 0 ||
+    (comments?.length > 0 && comments[0].parent_id === null)
+  "
+>
+  <div class="card-body">
+    <button class="btn btn-outline-primary btn-sm" (click)="onReply(-1)">
+      Comment
+    </button>
+    <div #replyForm [id]="-1"></div>
+  </div>
+</div>
+
+<div
+  class="card mt-1"
+  *ngFor="let comment of comments"
+  itemid="http://http://localhost:4200/"
+  itemscope
+  itemtype="http://schema.org/SocialMediaPosting"
+>
+  <div class="card-body">
+    <h5 class="card-title" itemprop="headline">
+      {{ comment.content }}
+    </h5>
+    <p
+      class="card-text card-content"
+      itemprop="author"
+      itemscope
+      itemtype="http://schema.org/Person"
+    >
+      {{ comment.user }} @{{ comment.date
+      }}<meta itemprop="datePublished" content="{{ comment.date }}" />
+    </p>
+    <button
+      class="btn btn-outline-primary btn-sm"
+      (click)="onReply(comment.id)"
+    >
+      Comment
+    </button>
+    <div #replyForm [id]="comment.id"></div>
+    <comments
+      class="children"
+      *ngIf="comment.children"
+      [comments]="comment.children"
+    ></comments>
+  </div>
+</div>
