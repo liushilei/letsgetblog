@@ -8,10 +8,9 @@ import { AppRoutingModule, routingComponent } from './app-routing.module';
 import { ShareBlogService } from './services/share-blog.service';
 import { AddCommentComponent } from './components/blog-page/add-comment/add-comment.component';
 import { BlogService } from './services/blog.service';
-import { SafehtmlPipe } from './pipes/safehtml.pipe';
 
 @NgModule({
-  declarations: [AppComponent, routingComponent, SafehtmlPipe],
+  declarations: [AppComponent, routingComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
